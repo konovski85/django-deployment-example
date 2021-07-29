@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+
+  {% block body-block %}
+  {% load some_extras %}
+    <h1>Welcom to Index!</h1>
+    <h1>This is html index page showing..</h1>
+    <h1>{{text|cut:'world'}}</h1>
+    <h1>{{number|add:'1'}}</h1>
+
+
+    <h1>Hi welcome to Django level two</h1>
+    <h2>Here are your Questions</h2>
+
+    <div class="djangotwo">
+      {% if questions %}
+      <table>
+        <thead>
+          <th>Date Published</th>
+          <th>Question</th>
+          <th>Choice_text</th>
+          <th>votes</th>
+          {% for que in questions %}
+          <tr>
+            <td> {{ que.question.pub_date }} </td>
+            <td>{{ que.question }}</td>
+            <td>{{que.choice_text}}</td>
+            <td>{{que.votes}}</td>
+
+          </tr>
+          {% endfor %}
+
+        </thead>
+      </table>
+      {% else %}
+        <p>no access_records found</p>
+      {% endif %}
+
+    </div>
+
+
+  {% endblock %}
